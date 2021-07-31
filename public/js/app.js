@@ -1852,8 +1852,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AddToCartButton",
   methods: {
-    AddToCart: function AddToCart() {
-      alert("addToCart");
+    addToCart: function addToCart() {
+      alert('addToCart');
     }
   }
 });
@@ -37520,20 +37520,21 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "a",
+    {
+      attrs: { href: "#" },
+      on: {
+        click: function($event) {
+          $event.preventDefault()
+          return _vm.addToCart.apply(null, arguments)
+        }
+      }
+    },
+    [_vm._v("add "), _c("span", [_vm._v("to ")]), _vm._v(" cart")]
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _vm._v("add "),
-      _c("span", [_vm._v("to ")]),
-      _vm._v(" cart")
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

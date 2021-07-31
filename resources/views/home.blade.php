@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 
 <!doctype html>
 <html class="no-js" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -401,8 +404,8 @@
 									<div class="new-arrival-cart">
 										<p>
 											<span class="lnr lnr-cart"></span>
-											<add-to-cart-button/>
-											<a href="#">add <span>to </span> cart</a>
+											<add-to-cart-button :product="{{ $product }}"/>
+											<!-- <a href="#">add <span>to </span> cart</a> -->
 
 										</p>
 										<p class="arrival-review pull-right">
@@ -783,3 +786,4 @@
     </body>
 
 </html>
+@endsection

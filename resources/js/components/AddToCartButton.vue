@@ -1,5 +1,5 @@
 <template>
-  <a href="#">add <span>to </span> cart</a>
+  <a href="#" @click.prevent="addToCart">add <span>to </span> cart</a>
 </template>
 
 <script>
@@ -7,8 +7,9 @@ export default {
   name: "AddToCartButton",
 
   methods: {
-    AddToCart() {
-      alert("addToCart");
+    addToCart() {
+
+      alert('addToCart');
     },
   },
 };
