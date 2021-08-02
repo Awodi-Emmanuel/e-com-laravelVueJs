@@ -63,10 +63,11 @@
 
    <div id="app">
 		<!--welcome-hero start -->
+
 		<header id="home" class="welcome-hero">
 
 			<div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
-				<!--/.carousel-indicator -->
+				<!-- /.carousel-indicator -->
 				 <ol class="carousel-indicators">
 					<li data-target="#header-carousel" data-slide-to="0" class="active"><span class="small-circle"></span></li>
 					<li data-target="#header-carousel" data-slide-to="1"><span class="small-circle"></span></li>
@@ -299,8 +300,38 @@
 				                    <li class=" scroll active"><a href="#home">home</a></li>
 				                    <li class="scroll"><a href="#new-arrivals">new arrival</a></li>
 				                    <li class="scroll"><a href="#feature">features</a></li>
-									<li class="scroll"><a href="auth/register">Register</a></li>
-									<li class="scroll"><a href="./auth/login">Login</a></li>
+
+									@guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                          		  </li>
+                       				 @endguest
 				                    <li class="scroll"><a href="#blog">blog</a></li>
 				                    <li class="scroll"><a href="#newsletter">contact</a></li>
 				                </ul><!--/.nav -->
@@ -314,7 +345,9 @@
 			</div><!-- /.top-area-->
 			<!-- top-area End -->
 
-		</header><!--/.welcome-hero-->
+		</header>
+
+		 <!--/.welcome-hero-->
 		<!--welcome-hero end -->
 
 		<!--populer-products start -->

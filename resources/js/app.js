@@ -24,6 +24,11 @@ Vue.component(
 );
 
 Vue.component(
+    "badge-icon",
+    require("./components/BadgIcon.vue").default
+);
+
+Vue.component(
     'add-to-cart-button',
     require('./components/AddToCartButton.vue').default
 );
